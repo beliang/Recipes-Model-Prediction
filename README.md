@@ -19,6 +19,20 @@ In our Random Forest Regressor, we used 2 parameters, max_depth and n_estimators
 
 ---
 ## Fairness Criteria
+To see if our model is fair or not we decided to do a permutation test on two groups sugary foods vs non sugary foods. We deemed a food to be sugary if any sugar (PDV) value was above the mean of the 97th percentile. We did this to account for any outliers in the dataset that might be inputted due to mistake. Our evalutation metric will be the R-squared values because we are doing a regression problem and cannot run any accuracy tests since we have no classifier. 
+> Null hypothesis: The model is fair 
+
+> Alternative hypothesis: The model is not fair. The R-squared value for not sugary foods is higher than the R-sqaured value for sugary foods
+
+>p-value: 0.96
+
+>Significance level: 0.05
+
+>Test statistic: Difference in means
+
+>Conclusion: Fail to reject the null
+
+Since our p-value comes out to be 0.96, we fail to reject the null. This suggests that our model is fair and there is no unfair rating based on whether the food was considered sugary or not. 
 <iframe src="assets/fairness.html" width=800 height=600 frameBorder=0></iframe>
 
 ---
